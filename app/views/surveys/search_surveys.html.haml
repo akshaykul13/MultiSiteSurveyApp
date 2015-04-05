@@ -12,11 +12,11 @@
   %tbody
     - @surveys.each do |survey|
       %tr
-        %td= survey.survey_name
+        %td= link_to content_tag(:strong, raw(survey.survey_name)), question_path(survey), :title => survey.survey_name
         %td= survey.surveyor_name
         %td= survey.created_at
-        %td= link_to "Questions", question_path(survey)
         %td= link_to "View Responses", survey_path(survey)
         %td= link_to "Delete Survey", survey_path(survey), :method => :delete
 
 = link_to 'Create New Survey', new_survey_path
+= link_to 'Back to all surveys', surveys_path

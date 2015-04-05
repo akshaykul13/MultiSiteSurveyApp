@@ -1,6 +1,13 @@
 -#  This file is app/views/surveys/index.html.haml
 %h1 All Surveys
 
+%h2 Search TMDb for a movie
+= form_tag :action => 'search_surveys' do
+  = label :search, :survey_name, 'Survey Name'
+  = text_field :search, :survey_name
+  
+  = submit_tag 'Search Surveys'
+
 %table#surveys
   %thead
     %tr
@@ -15,7 +22,8 @@
         %td= survey.survey_name
         %td= survey.surveyor_name
         %td= survey.created_at
-        %td= link_to "Questions", question_path(survey.id)
+        %td= link_to "Questions", question_path(survey)
         %td= link_to "View Responses", survey_path(survey)
+        %td= link_to "Delete Survey", survey_path(survey)
 
 = link_to 'Create New Survey', new_survey_path

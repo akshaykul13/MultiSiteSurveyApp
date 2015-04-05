@@ -22,7 +22,7 @@ class SurveysController < ApplicationController
     @survey = Survey.find(params[:id])
     @survey.destroy
     flash[:notice] = "Survey ’#{@survey.survey_name}’ deleted."
-    redirect_to surveys_path
+    redirect_to surveyss_path
   end
 end
 

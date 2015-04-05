@@ -20,7 +20,8 @@ module NavigationHelpers
     when /^the New Questions page for (.*)$/
       question_path(1)
       #question_path(Survey.where("survey_name =#{$1}"))
-
+    when /^the search results page/
+      '/surveys/search_surveys' 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

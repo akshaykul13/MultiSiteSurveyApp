@@ -14,15 +14,15 @@ class SurveysController < ApplicationController
   end
 
   def search_surveys
-    @surveys = Survey.find_by_survey_name(params[:search][:survey_name])
-    redirect_to surveys_path
+    wildcard_search = "%#{search}%"
+    @surveys = Survey.where("survey_name like :search", search: "%"+params[:search][:survey_name]+"%")
   end
 
   def destroy
     @survey = Survey.find(params[:id])
     @survey.destroy
     flash[:notice] = "Survey ’#{@survey.survey_name}’ deleted."
-    redirect_to surveyss_path
+    redirect_to surveys_path
   end
 end
 

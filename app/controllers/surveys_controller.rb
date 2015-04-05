@@ -14,8 +14,7 @@ class SurveysController < ApplicationController
   end
 
   def search_surveys
-    @surveys = Survey.find_by_survey_name(params[:search][:survey_name])
-    redirect_to surveys_path
+    @surveys = Survey.where("survey_name like :search", search: "%"+params[:search][:survey_name]+"%")
   end
 
   def destroy

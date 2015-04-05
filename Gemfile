@@ -47,7 +47,10 @@ end
 group :test do
   gem "rspec-rails", ">= 2.0.1"
   gem 'cucumber-rails'
+  gem 'cucumber-rails-training-wheels'
+  gem 'capybara'
   gem 'database_cleaner'
+  gem 'autotest-rails'
 end
 
 # use Haml for templates

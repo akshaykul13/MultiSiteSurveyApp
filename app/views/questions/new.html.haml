@@ -1,0 +1,14 @@
+%h2 Create New Question
+
+= form_tag questions_path, :method => :post do
+
+  = label :question, :question, 'Question'
+  = text_area :question, :question
+
+  = label :question, :response_type, 'Response Type'
+  = select :question, :response_type, [0,1,2]
+
+  = label :question, :response_values, 'Response Values'
+  = text_field :question, :response_values
+
+  = submit_tag 'Save Changes'

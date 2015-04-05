@@ -1,0 +1,35 @@
+-#  This file is app/views/questions/show.html.haml
+%h1 All Questions
+
+%table#questions
+  %thead
+    %tr
+      %th Survey ID
+      %th Survey Question
+      %th Response Type
+      %th Response Values
+  %tbody
+    - @questions.each do |movie|
+      %tr
+        %td= movie.survey_id
+        %td= movie.question
+        %td= movie.response_type
+        %td= movie.response_values
+
+= link_to 'Create New Question', new_question_path
+
+
+%h2 Create New Question
+
+= form_tag questions_path, :method => :post do
+
+  = label :question, :question, 'Question'
+  = text_area :question, :question
+
+  = label :question, :response_type, 'Response Type'
+  = select :question, :response_type, [:multiple_choice, :yes_or_no, :open_ended]
+
+  = label :question, :response_values, 'Response Values'
+  = text_field :question, :response_values
+
+  = submit_tag 'Save Changes'

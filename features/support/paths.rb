@@ -14,7 +14,7 @@ module NavigationHelpers
     case page_name
 
     when /^the surveys home\s?page$/
-      '/'
+      '/surveys'
     when /^the Create New Survey page/
       '/surveys/new'
 

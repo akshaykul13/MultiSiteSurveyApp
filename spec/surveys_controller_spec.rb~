@@ -1,0 +1,28 @@
+require 'spec_helper'
+
+
+describe SurveysController do
+  fixtures :surveys
+  #it 'should check something' do
+    #@survey = :surveys.index
+    #@survey[1].title.should == 'Survey1'
+  end
+end
+describe SurveysController do
+  #before do
+   # @survey = SurveysController.new(survey_name: 'survey1', surveyor_name: 'mrx', description: '...', survey_creation_date: '12-04')
+  #end 
+  describe 'index' do
+    it 'should call the model method that shows the index' do
+       #pending "model method"
+    end
+  end
+  describe 'search_surveys' do
+    it 'should call the model method that searched for a survey' do
+    #post :search_surveys, { :search_surveys => 'survey1'}
+    end
+  end
+  #describe 'call' do
+  #  it 'calls aja'
+  #end
+end

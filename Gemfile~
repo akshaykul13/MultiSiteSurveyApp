@@ -47,7 +47,7 @@ end
 group :test do
   gem "rspec-rails", ">= 2.0.1"
   gem 'cucumber-rails'
-  gem 'cucumber_rails_training_wheels'
+  gem 'cucumber-rails-training-wheels'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'autotest-rails'

@@ -51,6 +51,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'autotest-rails'
+  gem 'factory_girl_rails'
 end
 
 # use Haml for templates

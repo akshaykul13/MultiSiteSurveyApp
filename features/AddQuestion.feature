@@ -1,6 +1,6 @@
 Feature: Admin can manually add questions
- 
-Scenario: Add a survey
+
+Background:
   Given I am on the surveys home page
   When I follow "Create New Survey"
   Then I should be on the Create New Survey page
@@ -9,6 +9,9 @@ Scenario: Add a survey
   And I press "Save Changes"
   Then I should be on the surveys home page
   And I should see "My Test Survey"
+
+Scenario: Add a survey
+
   When I follow "My Test Survey"
   Then I should be on the New Questions page for XYZ
   When I fill in "Question" with "Cucumber Question"
@@ -17,4 +20,3 @@ Scenario: Add a survey
   And I press "Save Changes"
   Then I should be on the New Questions page for XYZ
   And I should see "Cucumber Question"
-  

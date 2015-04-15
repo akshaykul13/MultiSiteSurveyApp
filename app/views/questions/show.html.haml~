@@ -1,5 +1,5 @@
 -#  This file is app/views/questions/show.html.haml
-%script(src="questions.js")
+%script(src="/app/assets/questions.js")
 
 %h1 All Questions
 

@@ -63,4 +63,4 @@ end
 gem 'protected_attributes'
 
 gem 'jquery-turbolinks'
-
+gem 'devise'

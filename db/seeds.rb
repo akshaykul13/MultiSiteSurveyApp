@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+@admin = User.create(:email => "admin@surveybuilder.com", :password => "admin123", :password_confirmation => "admin123")
+@admin.admin = true
+@admin.save
+
+@surveytaker = User.create(:email => "user@surveybuilder.com", :password => "user1234", :password_confirmation => "user1234")
+@surveytaker.admin = false
+@surveytaker.save

@@ -17,9 +17,15 @@ class QuestionsController < ApplicationController
   def create
     params[:question][:survey_id] = @@survey_id
     #params[:question][:response_type] = Question.response_types[params[:question][:response_type]]/
-    @question = Question.create!(params[:question])
-    flash[:notice] = "#{@question.question} was successfully created."
-    redirect_to question_path(@@survey_id)
+    @question = Question.new(params[:question])
+    if @question.save
+      flash[:notice] = "#{@question.question} was successfully created."
+      redirect_to question_path(@@survey_id)
+    else
+      flash[:notice] = "Error: #{@question.errors.full_messages}"
+      render 'new'
+    end
+
   end
 
   def destroy

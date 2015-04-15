@@ -79,6 +79,6 @@ form label {
   color: maroon;
 }
 
-#newQuestionForm {
+#newQuestionForm, #createNewQuestionHeading {
   display: none;
 }

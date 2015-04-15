@@ -1,0 +1,8 @@
+$(document).ready(function(){
+    console.log("Hello");
+    $('#createNewQuestionHeading').click(function(){
+	console.log("New Question Clicked");
+	$("#createNewQuestionHeading").css("display","block");
+	$("#newQuestionForm").css("display","block");
+    });
+});

@@ -1,4 +1,6 @@
 -#  This file is app/views/questions/show.html.haml
+%script(src="questions.js")
+
 %h1 All Questions
 
 %table#questions
@@ -20,7 +22,7 @@
 = link_to 'Create New Question', "#" , :id => "createNewQuestionButton"
 
 
-%h2{:id => "createNewQuestionHeader"} Create New Question
+%h2{:id => "createNewQuestionHeading"} Create New Question
 
 = form_tag questions_path, :method => :post, :id => "newQuestionForm" do
 

@@ -11,14 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-$(document).ready(function(){
-
-    $('#createNewQuestionButton').click(function(){
-	$("#createNewQuestionHeading").css("display","block");
-	$("#newQuestionForm").css("display","block");
-    });
-});

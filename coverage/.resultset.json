@@ -1,14 +1,14 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/config/environment.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/config/application.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/config/application.rb": [
         1,
         null,
         1,
@@ -36,12 +36,12 @@
         null,
         null
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/config/boot.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/config/boot.rb": [
         1,
         null,
         1
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/config/environments/test.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/config/environments/test.rb": [
         1,
         null,
         null,
@@ -85,7 +85,7 @@
         null,
         null
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/config/initializers/assets.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -93,41 +93,12 @@
         null,
         null,
         null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/config/initializers/backtrace_silencers.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/config/initializers/cookies_serializer.rb": [
-        null,
-        null,
-        1
-      ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/config/initializers/inflections.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -136,18 +107,47 @@
         null,
         null
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/config/initializers/mime_types.rb": [
-        null,
-        null,
-        null,
-        null
-      ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/config/initializers/session_store.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/config/initializers/wrap_parameters.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/config/initializers/filter_parameter_logging.rb": [
+        null,
+        null,
+        null,
+        1
+      ],
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/config/initializers/inflections.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/config/initializers/mime_types.rb": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/config/initializers/session_store.rb": [
+        null,
+        null,
+        1
+      ],
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -163,7 +163,18 @@
         null,
         null
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/config/routes.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/spec/factories/survey_factory.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/config/routes.rb": [
         1,
         1,
         1,
@@ -171,7 +182,7 @@
         1,
         null
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/features/support/paths.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/features/support/paths.rb": [
         null,
         null,
         null,
@@ -185,14 +196,14 @@
         null,
         null,
         1,
-        13,
+        12,
         null,
         null,
         7,
         null,
         3,
         null,
-        2,
+        1,
         null,
         null,
         1,
@@ -217,7 +228,7 @@
         null,
         1
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/features/support/selectors.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/features/support/selectors.rb": [
         null,
         null,
         null,
@@ -263,7 +274,7 @@
         null,
         1
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/features/step_definitions/web_steps.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/features/step_definitions/web_steps.rb": [
         null,
         null,
         null,
@@ -316,7 +327,7 @@
         null,
         null,
         1,
-        5,
+        4,
         null,
         null,
         1,
@@ -324,7 +335,7 @@
         null,
         null,
         1,
-        9,
+        7,
         null,
         null,
         1,
@@ -349,10 +360,6 @@
         null,
         null,
         1,
-        1,
-        null,
-        null,
-        1,
         0,
         null,
         null,
@@ -369,26 +376,12 @@
         null,
         null,
         1,
-        5,
-        5,
-        null,
         0,
-        null,
         null,
         null,
         1,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
+        4,
+        4,
         null,
         0,
         null,
@@ -407,12 +400,18 @@
         1,
         0,
         0,
+        null,
         0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
         0,
         0,
         null,
         0,
-        null,
         null,
         null,
         null,
@@ -431,6 +430,18 @@
         1,
         0,
         0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
         null,
         0,
         0,
@@ -494,9 +505,9 @@
         null,
         null,
         1,
-        9,
-        9,
-        9,
+        8,
+        8,
+        8,
         null,
         0,
         null,
@@ -519,7 +530,7 @@
         0,
         null
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/app/controllers/surveys_controller.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/app/controllers/surveys_controller.rb": [
         1,
         1,
         7,
@@ -548,23 +559,23 @@
         null,
         null
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/app/controllers/application_controller.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/app/helpers/application_helper.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/app/models/survey.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/app/models/survey.rb": [
         1,
         1,
         null
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/app/controllers/questions_controller.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/app/controllers/questions_controller.rb": [
         1,
         1,
         1,
@@ -573,20 +584,20 @@
         null,
         1,
         null,
-        2,
-        2,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
         1,
         1,
         null,
+        null,
         1,
+        null,
+        null,
+        null,
         1,
-        1,
+        0,
+        null,
+        0,
+        0,
+        0,
         null,
         null,
         1,
@@ -598,13 +609,13 @@
         null,
         null
       ],
-      "/home/db/Documents/Software Engineering/Project/Akshay/Apr6/app/models/question.rb": [
+      "/home/akshay/TAMU/CSCE606/Project/multisitesurveyapp/app/models/question.rb": [
         1,
         1,
         1,
         null
       ]
     },
-    "timestamp": 1428358180
+    "timestamp": 1429057645
   }
 }

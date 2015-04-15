@@ -52,18 +52,18 @@ h1.title {
   font-size: 2em;
   font-style: normal;
 }
-table#surveys {
+table#surveys, table#questions {
   margin: 10px;
   border-collapse: collapse;
   width: 100%;
   border-bottom: 2px solid black;
 }
-table#surveys th {
+table#surveys th, table#questions th {
   border: 2px solid white;
   font-weight: bold;
   background-color: wheat;
 }
-table#surveys th, table#surveys td {
+table#surveys th, table#surveys td, table#questions th, table#questions td {
   padding: 4px;
   text-align: left;
 }
@@ -77,4 +77,8 @@ form label {
   line-height: 25px;
   font-weight: bold;
   color: maroon;
+}
+
+#newQuestionForm {
+  display: none;
 }

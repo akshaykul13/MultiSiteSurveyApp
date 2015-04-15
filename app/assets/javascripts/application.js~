@@ -18,7 +18,6 @@
 $(document).ready(function(){
 
     $('#createNewQuestionButton').click(function(){
-	$("#createNewQuestionHeading").css("display","block");
 	$("#newQuestionForm").css("display","block");
     });
 });

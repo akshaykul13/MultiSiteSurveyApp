@@ -1,0 +1,9 @@
+Feature: Survey Fields and Question fields can't be empty
+
+Scenario: Survey fields cant be empty
+  Given I am logged in
+  And I am on the Create New Survey page
+  When I fill in "Survey Name" with "My Test Survey"
+  And I fill in "Surveyor Name" with "Mr. XYZ"
+  And I press "Save Changes"
+  And I should see "Error:" 

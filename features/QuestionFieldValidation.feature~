@@ -1,4 +1,4 @@
-Feature: Admin can manually add questions
+Feature: Question Fields can't be empty 
 
 Background:
   Given I am logged in
@@ -12,13 +12,19 @@ Background:
   Then I should be on the surveys home page
   And I should see "My Test Survey"
 
-Scenario: Add a survey
+Scenario: Response Type can't be empty for multiple choice questions
 
   When I follow "My Test Survey"
   Then I should be on the New Questions page for XYZ
   When I fill in "Question" with "Cucumber Question"
-  And I select "open_ended" from "Response Type"
-  And I fill in "Response Values" with "Open ended Response"
+  And I select "multiple_choice" from "Response Type"
   And I press "Save Changes"
+  And I should see "Error:" 
+  
+Scenario: Question field can't be empty
+
+  When I follow "My Test Survey"
   Then I should be on the New Questions page for XYZ
-  And I should see "Cucumber Question"
+  And I select "open_ended" from "Response Type"
+  And I press "Save Changes"
+  And I should see "Error:" 

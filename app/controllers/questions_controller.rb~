@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(params[:question])
     if @question.save
       flash[:notice] = "#{@question.question} was successfully created."
-      redirect_to survey_question_path
+      redirect_to survey_questions_path
     else
       flash[:notice] = "Error: #{@question.errors.full_messages}"
       render 'new'

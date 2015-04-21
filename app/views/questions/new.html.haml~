@@ -1,6 +1,6 @@
 %h2 Create New Question
 
-= form_tag questions_path, :method => :post do
+= form_tag survey_questions_path, :method => :post do
 
   = label :question, :question, 'Question'
   = text_area :question, :question

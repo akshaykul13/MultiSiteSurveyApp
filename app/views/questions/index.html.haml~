@@ -1,17 +1,39 @@
--#  This file is app/views/questions/index.html.haml
-%h1 All Movies
+-#  This file is app/views/questions/show.html.haml
+%script(src="/app/assets/questions.js")
+
+%h1 All Questions
 
 %table#questions
   %thead
     %tr
-      %th Movie Title
-      %th Rating
-      %th Release Date
-      %th More Info
+      %th Survey ID
+      %th Survey Question
+      %th Response Type
+      %th Response Values
   %tbody
-    - @questions.each do |movie|
+    - @questions.each do |question|
       %tr
-        %td= movie.survey_id
-        %td= movie.rating
-        %td= movie.release_date
-        %td= link_to "More about #{movie.title}", movie_path(movie)
+        %td= question.survey_id
+        %td= question.question
+        %td= question.response_type
+        %td= question.response_values
+        
+
+= link_to 'Create New Question', new_survey_path
+= link_to 'Home', surveys_path
+
+
+%h2{:id => "createNewQuestionHeading"} Create New Question
+
+= form_tag survey_questions_path, :method => :post, :id => "newQuestionForm" do
+
+  = label :question, :question, 'Question'
+  = text_area :question, :question
+
+  = label :question, :response_type, 'Response Type'
+  = select :question, :response_type, [:multiple_choice, :yes_or_no, :open_ended]
+
+  = label :question, :response_values, 'Response Values'
+  = text_field :question, :response_values
+
+  = submit_tag 'Save Changes', :id => "submitNewQuestionButton"

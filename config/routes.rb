@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, :skip => :registrations
-  resources :surveys
+  resources :surveys do
+    resources :questions
+    resources :response_groups, only: [:new, :create]
+  end
   post '/surveys/search_surveys'
-  resources :questions
   root :to => redirect('/surveys')
 end

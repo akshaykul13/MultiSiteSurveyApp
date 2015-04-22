@@ -1,6 +1,14 @@
+require 'csv'
+
 class SurveysController < ApplicationController
   def index
     @surveys = Survey.order(created_at: :desc)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @surveys.to_csv1}
+      ##we can also change the downloaded CSV file name by setting filename attribute of send_data method
+      #format.csv { send_data @employees.to_csv, :filename => '<file_name>.csv' }
+    end
   end
 
   def new
@@ -28,11 +36,38 @@ class SurveysController < ApplicationController
     end
   end
 
+  def results    
+    respond_to do |format|
+      @survey = Survey.find(params[:survey_id])
+      format.html     
+      format.csv {send_data to_csv(params[:survey_id]), :filename => @survey.survey_name+' Results '+Time.new.strftime("%m-%d-%Y %H:%M:%S")+".csv"}
+    end    
+  end
+
   def destroy
     @survey = Survey.find(params[:id])
     @survey.destroy
     flash[:notice] = "Survey ’#{@survey.survey_name}’ deleted."
     redirect_to surveys_path
   end
-end
 
+  def to_csv(survey_id)
+    CSV.generate do |csv|
+      csv_headers = []
+      questions = Question.where(:survey_id => survey_id)
+      questions.each do |question|
+        csv_headers << question.question
+      end
+      csv << csv_headers ## Header values of CSV
+      response_groups = ResponseGroup.where(:survey_id => survey_id)
+      response_groups.each do |response_group|
+        responses = Response.where(:response_group => response_group.id)
+        answers_list = []
+        responses.each do |response|
+          answers_list << response.answer_text
+        end
+        csv << answers_list
+      end
+    end
+  end
+end

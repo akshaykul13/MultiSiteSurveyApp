@@ -21,7 +21,10 @@
   %tbody
     - @surveys.each do |survey|
       %tr
-        %td= link_to content_tag(:strong, raw(survey.survey_name)), survey_questions_path(survey), :title => survey.survey_name, :class => "surveysClass"
+        - if current_user.admin
+          %td= link_to content_tag(:strong, raw(survey.survey_name)), survey_questions_path(survey), :title => survey.survey_name, :class => "surveysClass"
+        - else
+          %td= survey.survey_name
         %td= survey.surveyor_name
         %td= survey.created_at
         %td= link_to "Take the survey", new_survey_response_group_path(survey)

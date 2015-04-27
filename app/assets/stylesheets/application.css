@@ -20,7 +20,7 @@
 html, body {
   margin: 0;
   padding: 0;  
-  background: #393939;
+  background: #333333;
   color: White;
   font-family: Tahoma, Verdana, sans-serif;
   font-size: 10pt;
@@ -40,7 +40,7 @@ a {
   text-align: left;
 }
 h1 {
-  color: #f3843e;
+  color: #E05151;
   text-align: center;
   font-size: 38px; font-family: 'Tangerine', serif; padding-bottom: 10px;
   
@@ -66,7 +66,7 @@ table#surveys, table#questions {
 table#surveys th, table#questions th {
   
   font-weight: bold;
-  background-color: #f3843e ;
+  background-color: #E05151;
   
 }
 table#surveys th, table#surveys td, table#questions th, table#questions td {
@@ -96,7 +96,7 @@ table#surveys th, table#surveys td, table#questions th, table#questions td {
 	font-size: 14px;
 	color: #f2f2f2;
 	text-align: center;
-	background: #f3843e;
+	background: #E05151;
 	border: 0;
 	cursor: pointer;
  }

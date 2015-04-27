@@ -40,7 +40,7 @@ a {
   text-align: left;
 }
 h1 {
-  color: #ff9900;
+  color: #f3843e;
   text-align: center;
   font-size: 38px; font-family: 'Tangerine', serif; padding-bottom: 10px;
   
@@ -96,7 +96,7 @@ table#surveys th, table#surveys td, table#questions th, table#questions td {
 	font-size: 14px;
 	color: #f2f2f2;
 	text-align: center;
-	background: #ff9900;
+	background: #f3843e;
 	border: 0;
 	cursor: pointer;
  }

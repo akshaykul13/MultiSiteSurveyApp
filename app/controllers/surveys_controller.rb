@@ -24,7 +24,8 @@ class SurveysController < ApplicationController
   end
 
   def search_surveys
-    @surveys = Survey.where("survey_name like :search", search: "%"+params[:search][:survey_name]+"%")
+    search_term = params[:search][:survey_name].downcase
+    @surveys = Survey.where("LOWER(survey_name) like :search", search: "%"+search_term+"%")
     if @surveys.empty?
       flash[:notice] = "Error: No matching survey found!!"
     end

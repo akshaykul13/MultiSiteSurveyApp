@@ -6,7 +6,7 @@
     = label :response, question.id, question.question
     - if question.response_type == 'Open Ended'
       = text_area :response, question.id
-    - elsif question.response_type == 'yes/No'
+    - elsif question.response_type == 'Yes/No'
       %label{:for => "true"} True
       %input{:id => "true", :name => "response["+question.id.to_s+"]", :type => "radio", :value => "True"}
       %label{:for => "false"} False
@@ -16,3 +16,5 @@
         = label :response, option
         %input{:id => "response_"+option, :name => "response["+question.id.to_s+"]", :type => "radio", :value => option}
   = submit_tag 'Save Changes'
+
+= link_to 'Create New Survey', new_survey_path, :id => "createSurveys"

@@ -2,13 +2,7 @@ require 'csv'
 
 class SurveysController < ApplicationController
   def index
-    @surveys = Survey.order(created_at: :desc)
-    respond_to do |format|
-      format.html
-      format.csv { send_data @surveys.to_csv1}
-      ##we can also change the downloaded CSV file name by setting filename attribute of send_data method
-      #format.csv { send_data @employees.to_csv, :filename => '<file_name>.csv' }
-    end
+    @surveys = Survey.order(created_at: :desc)    
   end
 
   def new
@@ -18,7 +12,6 @@ class SurveysController < ApplicationController
   def create   
     #@survey = Survey.create!(params[:survey])
     @survey = Survey.new(params[:survey])
-    @survey[:questions_order] = "Default"
     if @survey.save 
      flash[:notice] = "#{@survey.survey_name} was successfully created."
      redirect_to surveys_path
@@ -49,6 +42,15 @@ class SurveysController < ApplicationController
     survey = Survey.find(params[:survey_id])
     survey.update(questions_order: params[:question][:questions_order])
     redirect_to survey_questions_path(survey)
+  end
+
+  def get_survey_object
+    survey = Survey.find(params[:survey_id])
+    @questions = Question.where(:survey_id => params[:survey_id	])
+    respond_to do |format|
+      format.html {render :nothing => true}
+      format.json {render :json => @questions}
+    end
   end
 
   def destroy

@@ -1,38 +1,18 @@
--#  This file is app/views/questions/show.html.haml
-%script(src="/app/assets/questions.js")
+%h2 Please answer these Questions
+%hr
 
-%h1 All Questions
-
-%table#questions
-  %thead
-    %tr
-      %th Survey ID
-      %th Survey Question
-      %th Response Type
-      %th Response Values
-  %tbody
-    - @questions.each do |question|
-      %tr
-        %td= question.survey_id
-        %td= question.question
-        %td= question.response_type
-        %td= question.response_values
-        %td= link_to "Delete", question_path(question), :method => :delete
-
-= link_to 'Create New Question', "#" , :id => "createNewQuestionButton"
-
-
-%h2{:id => "createNewQuestionHeading"} Create New Question
-
-= form_tag questions_path, :method => :post, :id => "newQuestionForm" do
-
-  = label :question, :question, 'Question'
-  = text_area :question, :question
-
-  = label :question, :response_type, 'Response Type'
-  = select :question, :response_type, [:multiple_choice, :yes_or_no, :open_ended]
-
-  = label :question, :response_values, 'Response Values'
-  = text_field :question, :response_values
-
-  = submit_tag 'Save Changes', :id => "submitNewQuestionButton"
+= form_tag survey_response_groups_path, :method => :post do
+  - @questions.each do |question|
+    = label :response, question.id, question.question
+    - if question.response_type == 'Open Ended'
+      = text_area :response, question.id
+    - elsif question.response_type == 'Yes/No'
+      %label{:for => "true"} True
+      %input{:id => "true", :name => "response["+question.id.to_s+"]", :type => "radio", :value => "True"}
+      %label{:for => "false"} False
+      %input{:id => "false", :name => "response["+question.id.to_s+"]", :type => "radio", :value => "False"}
+    - else
+      - question.response_values.split(/,+/).each do |option|
+        = label :response, option
+        %input{:id => "response_"+option, :name => "response["+question.id.to_s+"]", :type => "radio", :value => option}
+  = submit_tag 'Save Changes'

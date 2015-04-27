@@ -27,7 +27,7 @@
           %td= survey.survey_name
         %td= survey.surveyor_name
         %td= survey.created_at
-        %td= link_to "Take the survey", new_survey_response_group_path(survey)
+        %td= link_to "Take the survey", new_survey_response_group_path(survey), :class => "takeSurveyClass", :id => survey.id
         - if current_user.admin
           %td= link_to "Survey Results", survey_results_path(survey, format: "csv")
           %td= link_to "Delete Survey", survey_path(survey), :method => :delete

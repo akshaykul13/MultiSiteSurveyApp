@@ -15,16 +15,20 @@ Background:
 Scenario: Response Type can't be empty for multiple choice questions
 
   When I follow "My Test Survey"
-  Then I should be on the New Questions page for XYZ
+  Then I should be on the Questions page for My Test Survey
+  When I follow "Create New Question"
+  Then I should be on the New Questions page for My Test Survey
   When I fill in "Question" with "Cucumber Question"
-  And I select "multiple_choice" from "Response Type"
+  And I select "Multiple Choice" from "Response Type"
   And I press "Save Changes"
   And I should see "Error:" 
   
 Scenario: Question field can't be empty
 
   When I follow "My Test Survey"
-  Then I should be on the New Questions page for XYZ
-  And I select "open_ended" from "Response Type"
+  Then I should be on the Questions page for My Test Survey
+  When I follow "Create New Question"
+  Then I should be on the New Questions page for My Test Survey
+  And I select "Open Ended" from "Response Type"
   And I press "Save Changes"
   And I should see "Error:" 

@@ -1,5 +1,5 @@
 Feature: Admin can manually add survey
- 
+
 Scenario: Add a survey
   Given I am logged in
   Then I should be on the surveys home page

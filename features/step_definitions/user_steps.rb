@@ -7,6 +7,10 @@ def create_visitor
 @visitor ||= { :email => "admin@surveybuilder.com",
 :password => "admin123", :password_confirmation => "admin123" }
 end
+def create_surveytaker
+@visitor ||= { :email => "user@surveybuilder.com",
+:password => "user1234", :password_confirmation => "user1234" }
+end
 def find_user
 @user ||= User.where(:email => @visitor[:email]).first
 end
@@ -36,8 +40,14 @@ Given /^I am not logged in$/ do
 visit '/users/sign_in'
 end
 Given /^I am logged in$/ do
-create_user
+create_visitor
 sign_in
+end
+Given /^User is logged in$/ do
+visit '/users/sign_in'
+fill_in "user_email", :with => "user@surveybuilder.com"
+fill_in "user_password", :with => "user1234"
+click_button "Log in"
 end
 Given /^I exist as a user$/ do
 create_user
@@ -55,7 +65,8 @@ create_user
 sign_in
 end
 When /^I sign out$/ do
-visit '/users/sign_out'
+click_link("Logout")
+#visit '/users/sign_out'
 end
 When /^I return to the site$/ do
 visit '/'
@@ -115,4 +126,6 @@ end
 Then /^I should see an account edited message$/ do
 page.should have_content "You updated your account successfully."
 end
-
+Then /^I should get a download with the filename "([^\"]*)"$/ do |filename|
+page.driver.response.headers['Content-Disposition'].should match /^attachment/
+end

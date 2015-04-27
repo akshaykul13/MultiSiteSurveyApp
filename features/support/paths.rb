@@ -17,9 +17,15 @@ module NavigationHelpers
       '/surveys'
     when /^the Create New Survey page/
       '/surveys/new'
+    when /^the Questions page for (.*)$/
+      @survey =  Survey.where(survey_name: $1).first
+      survey_questions_path(@survey.id)
     when /^the New Questions page for (.*)$/
-      question_path(1)
-      #question_path(Survey.where("survey_name =#{$1}"))
+      @survey =  Survey.where(survey_name: $1).first
+      new_survey_question_path(@survey.id)
+    when /^the Response page for (.*)$/
+      @survey =  Survey.where(survey_name: $1).first
+      new_survey_response_group_path(@survey.id)
     when /^the search results page/
       '/surveys/search_surveys' 
     # Add more mappings here.

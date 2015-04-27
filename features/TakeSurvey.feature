@@ -1,4 +1,4 @@
-Feature: Admin can manually add questions
+Feature: Taking a survey
 
 Background:
   Given I am logged in
@@ -12,8 +12,6 @@ Background:
   Then I should be on the surveys home page
   And I should see "My Test Survey"
 
-Scenario: Add a survey
-
   When I follow "My Test Survey"
   Then I should be on the Questions page for My Test Survey
   When I follow "Create New Question"
@@ -24,3 +22,14 @@ Scenario: Add a survey
   And I press "Save Changes"
   Then I should be on the Questions page for My Test Survey
   And I should see "Cucumber Question"
+  When I sign out
+  Then I should see "Log in"
+
+Scenario:
+  Given User is logged in
+  Then I should be on the surveys home page
+  When I follow "My Test Survey"
+  Then I should be on the Response page for My Test Survey
+  When I fill in "Cucumber Question" with "Cucumber Response"
+  And I press "Save Changes"
+  Then I should be on the surveys home page

@@ -6,21 +6,30 @@
 %table#questions
   %thead
     %tr
-      %th Survey ID
+      %th Question ID
       %th Survey Question
       %th Response Type
       %th Response Values
   %tbody
     - @questions.each do |question|
       %tr
-        %td= question.survey_id
+        %td= question.id
         %td= question.question
         %td= question.response_type
-        %td= question.response_values
-        
+        %td= question.response_values       
 
 = link_to 'Create New Question', new_survey_question_path
 = link_to 'Home', surveys_path
+
+%h4= 'Questions Order'
+%span= @survey.questions_order
+
+= form_tag survey_questions_order_path, :method => :post do
+
+  = label :question, :questions_order, 'Questions Order'
+  = text_field :question, :questions_order
+
+  = submit_tag 'Save Changes'
 
 
 %h2{:id => "createNewQuestionHeading"} Create New Question

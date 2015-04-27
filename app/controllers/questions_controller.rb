@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.where(:survey_id => params[:survey_id])
+    @survey = Survey.find(params[:survey_id])
   end  
 
   def new

@@ -18,6 +18,7 @@ class SurveysController < ApplicationController
   def create   
     #@survey = Survey.create!(params[:survey])
     @survey = Survey.new(params[:survey])
+    @survey[:questions_order] = "Default"
     if @survey.save 
      flash[:notice] = "#{@survey.survey_name} was successfully created."
      redirect_to surveys_path
@@ -42,6 +43,12 @@ class SurveysController < ApplicationController
       format.html     
       format.csv {send_data to_csv(params[:survey_id]), :filename => @survey.survey_name+' Results '+Time.new.strftime("%m-%d-%Y %H:%M:%S")+".csv"}
     end    
+  end
+
+  def questions_order
+    survey = Survey.find(params[:survey_id])
+    survey.update(questions_order: params[:question][:questions_order])
+    redirect_to survey_questions_path(survey)
   end
 
   def destroy

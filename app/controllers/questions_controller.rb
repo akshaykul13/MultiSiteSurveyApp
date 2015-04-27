@@ -38,7 +38,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.destroy
     flash[:notice] = "Question ’#{@question.question}’ deleted."
-    redirect_to question_path(@question.survey_id)
+    redirect_to survey_questions_path(@question.survey_id)
   end
 end
 

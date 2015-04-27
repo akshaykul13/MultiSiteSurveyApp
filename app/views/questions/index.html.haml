@@ -10,13 +10,15 @@
       %th Survey Question
       %th Response Type
       %th Response Values
+      %th Delete
   %tbody
     - @questions.each do |question|
       %tr
         %td= question.id
         %td= question.question
         %td= question.response_type
-        %td= question.response_values       
+        %td= question.response_values     
+        %td= link_to "Delete", survey_question_path(params[:survey_id],question), :method => :delete
 
 = link_to 'Create New Question', new_survey_question_path
 = link_to 'Home', surveys_path

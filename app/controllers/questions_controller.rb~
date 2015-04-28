@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
         @survey.update(questions_order: @question.id.to_s)
       else
         order = @survey.questions_order + "," + @question.id.to_s
-        @survey.update(questions_order: @survey)
+        @survey.update(questions_order: order)
       end
       flash[:notice] = "#{@question.question} was successfully created."
       redirect_to survey_questions_path
@@ -38,7 +38,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.destroy
     flash[:notice] = "Question ’#{@question.question}’ deleted."
-    redirect_to question_path(@question.survey_id)
+    redirect_to survey_questions_path(@question.survey_id)
   end
 end
 

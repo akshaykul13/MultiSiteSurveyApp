@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
     if @question.save
       @survey = Survey.find(params[:survey_id])
       Rails.logger.debug("Survey Order: #{@survey.inspect}")
-      if @survey.questions_order == ""
+      if @survey.questions_order == "" || @survey.questions_order == nil
         @survey.update(questions_order: @question.id.to_s)
       else
         order = @survey.questions_order + "," + @question.id.to_s

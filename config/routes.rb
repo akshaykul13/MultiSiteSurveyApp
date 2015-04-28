@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :response_groups, only: [:new, :create, :show] do
       post 'next_question'
       get 'prev_question'
+      get 'summary'
+      get 'submit_summary'
     end
     post 'questions_order'
     get 'get_survey_object'

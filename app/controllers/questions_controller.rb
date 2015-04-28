@@ -38,21 +38,15 @@ class QuestionsController < ApplicationController
     @survey = Survey.find(params[:survey_id])
     questions_order = @survey.questions_order
     list = []
-    Rails.logger.debug("questions_order1: #{questions_order.inspect}")
     questions_order.split(/,+/).each do |order|
       list << order
     end
-    Rails.logger.debug("List1: #{list.inspect}")
     list.delete(params[:id])
-    Rails.logger.debug("List2: #{list.inspect}")
     new_questions_order = ""
     list.each do |item|      
       new_questions_order = new_questions_order + item + ","
     end
-    Rails.logger.debug("new_questions_order1: #{new_questions_order.inspect}")
-    Rails.logger.debug("Lenght1: #{new_questions_order.length.inspect}")
     new_questions_order = new_questions_order[0, new_questions_order.length-1]
-    Rails.logger.debug("new_questions_order2: #{new_questions_order.inspect}")
     @survey.update(questions_order: new_questions_order)
     @question = Question.find(params[:id])
     @question.destroy

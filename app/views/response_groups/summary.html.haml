@@ -1,0 +1,18 @@
+%h1 All Surveys
+
+%table#response_summary
+  %thead
+    %tr
+      %th Question ID
+      %th Question
+      %th Response
+  %tbody
+    - @response_values.each do |key, value|
+      %tr        
+        %td= key
+        - @questions.each do |question|
+          - if question.id == key.to_i
+            %td= question.question
+        %td= value
+
+= link_to 'Confirm Submission', survey_response_group_submit_summary_path(params[:survey_id], params[:response_group_id])   

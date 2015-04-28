@@ -14,4 +14,5 @@
     - @current_question.response_values.split(/,+/).each do |option|
       = label :response, option
       %input{:id => "response_"+option, :name => "response["+@current_question.id.to_s+"]", :type => "radio", :value => option}
+  = link_to 'Previous', survey_response_group_prev_question_path(:response_group_id=>4)
   = submit_tag 'Save Changes'

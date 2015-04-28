@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users, :skip => :registrations
+  devise_for :users #, :skip => :registrations
   resources :surveys do
     resources :questions do
     end
     resources :response_groups, only: [:new, :create, :show] do
-      get 'next_question'
+      post 'next_question'
       get 'prev_question'
+      get 'summary'
     end
     post 'questions_order'
     get 'get_survey_object'

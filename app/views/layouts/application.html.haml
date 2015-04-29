@@ -18,13 +18,16 @@
       Logged in as
       = succeed "." do
         %strong= current_user.email
-        = link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'
-        |
-        \#{link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
+        = link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'
+        -#= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'
+        -#|
+        -#\#{link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
+      - if current_user.admin == 2 # root 
+        = link_to 'Manage Users', manageusers_path
     - else
       %h1 Survey Builder
-      - if request.env['PATH_INFO'] != "/users/sign_up"
-        = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
+      -#- if request.env['PATH_INFO'] != "/users/sign_up"
+      -#  = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
       - if request.env['PATH_INFO'] != "/users/sign_in"
         = link_to "Home", surveys_path, :class => 'navbar-link'
       

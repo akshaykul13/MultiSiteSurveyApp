@@ -5,5 +5,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def make_admin
+    self.admin = 1
+  end
+  def make_user
+    self.admin = 0
+  end
 
 end

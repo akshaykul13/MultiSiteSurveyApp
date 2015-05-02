@@ -6,10 +6,10 @@
   = text_area :question, :question
 
   = label :question, :response_type, 'Response Type'
-  = select :question, :response_type, ['Multiple Choice', 'Yes/No', 'Open Ended']
+  = select :question, :response_type, ['Multiple Choice', 'Yes/No', 'True/False','Open Ended']
 
   = label :question, :response_values, 'Response Values'
-  = text_field :question, :response_values
+  = text_field :question, :response_values, :placeholder => 'Enter comma separated values'
 
   = submit_tag 'Save Changes'
 

@@ -6,6 +6,11 @@
   - if @current_question.response_type == 'Open Ended'
     = text_area :response, @current_question.id
   - elsif @current_question.response_type == 'Yes/No'
+    %label{:for => "true"} Yes
+    %input{:id => "true", :name => "response["+@current_question.id.to_s+"]", :type => "radio", :value => "Yes"}
+    %label{:for => "false"} No
+    %input{:id => "false", :name => "response["+@current_question.id.to_s+"]", :type => "radio", :value => "No"}
+  - elsif @current_question.response_type == 'True/False'
     %label{:for => "true"} True
     %input{:id => "true", :name => "response["+@current_question.id.to_s+"]", :type => "radio", :value => "True"}
     %label{:for => "false"} False

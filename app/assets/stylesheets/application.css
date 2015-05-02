@@ -39,6 +39,7 @@ a {
   text-decoration: underline;
   font-weight: bold;
   text-align: center;
+  display: block;
 }
 h1 {
   color: #E05151;
@@ -61,11 +62,9 @@ table#surveys, table#questions {
   margin: 10px;
   border-collapse: collapse;
   width: 100%;
-  
-    
 }
+
 table#surveys th, table#questions th, table#users th{
-  
   font-weight: bold;
   background-color: #E05151;
   
@@ -74,6 +73,12 @@ table#surveys th, table#surveys td, table#questions th, table#questions td, tabl
   padding: 4px;
 }
 
+table
+{ 
+    margin-left: auto;
+    margin-right: auto;
+}
+  
 #notice, #warning {
   background: rosybrown;
   margin: 1em 0;

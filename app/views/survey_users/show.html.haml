@@ -21,7 +21,7 @@
 
 = link_to 'Back', survey_users_path
 
-- if @choices != nil
+- if @choices.size != 0
   %h2 Add Survey
 
   = form_tag survey_users_path, :method => :post do

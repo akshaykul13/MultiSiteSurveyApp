@@ -11,6 +11,7 @@
       %th IP
       %th Change Password
       %th Delete
+      -#%th Manage Surveys
 
   %tbody
     - @users.each do |user|
@@ -30,6 +31,7 @@
         - else 
           %td= "NA"
           %td= "NA"
+        -#%td= link_to "Manage",manageuser_survey_users_path(user)
 
 
 = link_to 'Add Users', new_manageuser_path

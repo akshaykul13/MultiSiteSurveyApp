@@ -2,7 +2,17 @@ require 'csv'
 
 class SurveysController < ApplicationController
   def index
-    @surveys = Survey.order(created_at: :desc)    
+    if current_user.admin != 0
+      @surveys = Survey.order(created_at: :desc) 
+    else
+      @surveys = []
+      @alloted = SurveyUser.where(userid: current_user.id)
+      if @alloted != nil
+        @alloted.each do |alloted|
+          @surveys.push Survey.where(id: alloted.surveyid).first
+       end
+      end
+    end
   end
 
   def new

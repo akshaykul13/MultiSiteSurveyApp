@@ -18,3 +18,8 @@
 @surveytaker.admin = 0
 @surveytaker.save
 
+@s = Survey.create(:survey_name => "TV Show Survey", :surveyor_name => "Ringo", :description => "Best TV Show")
+@s.save
+
+@s = Survey.create(:survey_name => "Movie", :surveyor_name => "Django", :description => "Best Movie")
+@s.save

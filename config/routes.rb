@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users , :skip => :registrations
-  resources :manageusers
+  resources :survey_users
+  resources :manageusers 
   resources :surveys do
     resources :questions do
     end

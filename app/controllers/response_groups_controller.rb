@@ -51,21 +51,22 @@ class ResponseGroupsController < ApplicationController
       Rails.logger.debug("Next question id: #{@@questions_order[@@questions_counter].inspect}")
       @current_question = Question.find(@@questions_order[@@questions_counter])
       @dependency_list = []
-      @current_question.dependency.split(/\s*,+\s*/).each do |dep|
-        @dependency_list << dep.downcase
-      end
-      flag = false
-      for i in 0..@dependency_list.length - 1
-        if i % 2 != 0
-           next
-        end 
-        if @dependency_list[i+1] == @@responses[@dependency_list[i]].downcase ||@current_question.dependency == nil ||@current_question.dependency == ''
-          flag = true
-          break
+      if(@current_question.dependency != "" && @current_question.dependency != nil)
+        @current_question.dependency.split(/\s*,+\s*/).each do |dep|
+          @dependency_list << dep.downcase
+        end
+        flag = false
+        for i in 0..@dependency_list.length - 1
+          if i % 2 != 0
+             next
+          end 
+          if @dependency_list[i+1] == @@responses[@dependency_list[i]].downcase ||@current_question.dependency == nil ||@current_question.dependency == ''
+            flag = true
+            break
+          end
         end
       end
-      
-      if @current_question.dependency == nil ||@current_question.dependency == ''
+      if @current_question.dependency == nil || @current_question.dependency == ''
         flag = true
       end
 

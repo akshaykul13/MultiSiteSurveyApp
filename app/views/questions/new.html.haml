@@ -3,7 +3,7 @@
 = form_tag survey_questions_path, :method => :post do
 
   = label :question, :question, 'Question'
-  = text_area :question, :question
+  = text_area :question, :question, :id=>'questionInput'
 
   = label :question, :response_type, 'Response Type'
   = select :question, :response_type, ['Multiple Choice', 'Yes/No', 'True/False','Open Ended']

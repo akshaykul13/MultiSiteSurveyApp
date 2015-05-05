@@ -1,12 +1,18 @@
 -#  This file is app/views/surveys/index.html.haml
-%h1 All Surveys
+%h1 Survey Builder Dashboard
 
-%h4 Search
-= form_tag :action => 'search_surveys' do
-  = label :search, :survey_name, 'Survey Name'
-  = text_field :search, :survey_name
-  
-  = submit_tag 'Search Surveys'
+%div#searchDiv
+  #searchHead Search
+  =form_tag :action => 'search_surveys' do
+    = label :search, :survey_name, 'Survey Name'
+    = text_field :search, :survey_name  
+    = submit_tag 'Search Surveys'
+
+%div#menuDiv
+  - if current_user.admin != 0
+    = link_to 'Create New Survey', new_survey_path, :id => "createSurveys"
+    = link_to "Add Surveys to Users", survey_users_path, :id => "addUserToSurveys"
+    = link_to "Add Surveys to Users", survey_users_path, :id => "addUserToSurveys"	 
 
 %table#surveys
   %thead
@@ -14,24 +20,20 @@
       %th Survey Name
       %th Surveyor Name
       %th Survey Creation Date
-      %th Survey Link
-      - if current_user.admin
+      - if current_user.admin != 0
+        %th Survey Link
         %th Responses
         %th Options
   %tbody
     - @surveys.each do |survey|
       %tr
-        - if current_user.admin
+        - if current_user.admin != 0
           %td= link_to content_tag(:strong, raw(survey.survey_name)), survey_questions_path(survey), :title => survey.survey_name, :class => "surveysClass"
         - else
-          %td= survey.survey_name
+          %td= link_to content_tag(:strong, raw(survey.survey_name)), new_survey_response_group_path(survey), :title => survey.survey_name, :class => "surveysClass"
         %td= survey.surveyor_name
         %td= survey.created_at
-        %td= link_to "Take the survey", new_survey_response_group_path(survey), :class => "takeSurveyClass", :id => survey_id
-        - if current_user.admin
+        - if current_user.admin != 0
+          %td= link_to "Take the survey", new_survey_response_group_path(survey)
           %td= link_to "Survey Results", survey_results_path(survey, format: "csv")
           %td= link_to "Delete Survey", survey_path(survey), :method => :delete
-
-- if current_user.admin
-  = link_to 'Create New Survey', new_survey_path, :id => "createSurveys"
-  = link_to "Download CSV", surveys_path(format: "csv")

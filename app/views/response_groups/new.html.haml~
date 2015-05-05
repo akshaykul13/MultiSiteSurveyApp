@@ -1,20 +1,27 @@
-%h2 Please answer these Questions
+%h2 Please answaer these Questions
 %hr
 
 = form_tag survey_response_groups_path, :method => :post do
   - @questions.each do |question|
     = label :response, question.id, question.question
     - if question.response_type == 'Open Ended'
-      = text_area :response, question.id
+      %div
+        = text_area :response, question.id
     - elsif question.response_type == 'Yes/No'
-      %label{:for => "true"} True
-      %input{:id => "true", :name => "response["+question.id.to_s+"]", :type => "radio", :value => "True"}
-      %label{:for => "false"} False
-      %input{:id => "false", :name => "response["+question.id.to_s+"]", :type => "radio", :value => "False"}
+      %div
+        %label{:for => "true"} Yes
+        %input{:id => "true", :name => "response["+question.id.to_s+"]", :type => "radio", :value => "Yes"}
+        %label{:for => "false"} No
+        %input{:id => "false", :name => "response["+question.id.to_s+"]", :type => "radio", :value => "No"}
+    - elsif question.response_type == 'True/False'
+      %div
+        %label{:for => "true"} True
+        %input{:id => "true", :name => "response["+question.id.to_s+"]", :type => "radio", :value => "True"}
+        %label{:for => "false"} False
+        %input{:id => "false", :name => "response["+question.id.to_s+"]", :type => "radio", :value => "False"}
     - else
-      - question.response_values.split(/,+/).each do |option|
-        = label :response, option
-        %input{:id => "response_"+option, :name => "response["+question.id.to_s+"]", :type => "radio", :value => option}
+      %div
+        - question.response_values.split(/,+/).each do |option|
+          = label :response, option
+          %input{:id => "response_"+option, :name => "response["+question.id.to_s+"]", :type => "radio", :value => option}
   = submit_tag 'Save Changes'
-
-= link_to 'Create New Survey', new_survey_path, :id => "createSurveys"

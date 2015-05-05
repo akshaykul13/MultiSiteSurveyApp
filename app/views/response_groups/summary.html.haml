@@ -1,4 +1,4 @@
-%h1 All Surveys
+%h1 Survey Response Summary
 
 %table#response_summary
   %thead
@@ -15,5 +15,5 @@
             %td= question.question
         %td= value
 
-= link_to 'Confirm Submission', survey_response_group_submit_summary_path(params[:survey_id], params[:response_group_id])  
-= link_to 'Back', survey_response_group_prev_question_path(:response_group_id=>4) 
+= link_to 'Confirm Submission', survey_response_group_submit_summary_path(params[:survey_id], params[:response_group_id]), :id => 'take_survey_confirm'
+= link_to 'Home', surveys_path, :class => 'homeLink'

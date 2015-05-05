@@ -17,13 +17,15 @@
 /* Simple CSS styling for RottenPotatoes app */
 /* Add these lines to app/assets/stylesheets/application.css */
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,600italic,400italic,300italic,700italic);
+
 html, body {
-  margin: 0;
+  margin: 10;
   padding: 0;  
-  background: #333333;
-  color: White;
-  font-family: Tahoma, Verdana, sans-serif;
-  font-size: 10pt;
+  background: #FFFFFF;
+  color: black;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12pt;
   text-align: center;
   display: block;
   
@@ -33,95 +35,195 @@ div#main {
   margin: 0;
   padding: 0 20px 20px;
 }
+
+#menuDiv {
+  margin: auto auto;
+  width: 800px;
+  height: 60px;
+  margin-top: 20px;
+}
+
+#searchDiv {
+  margin: 0 auto;
+  width: 300px;
+  height: 110px;
+  background-color: #34495E;
+  padding: 10px;
+  border-radius: 5px;
+  display:block; 
+}
+
+#menuLinks{
+  display:relative;
+  float:left;
+  margin-left: 50px; 
+}
+
+#createSurveys, #addUserToSurveys{
+  padding-left: 10px;
+  padding-right: 10px; 
+}
+
+.createNewQuestions, .homeLink {
+  display:block;
+}
+
+#searchHead {
+  font-size: 20px;
+  color: #E05151;
+  font-weight: 700;
+}
+
 a {
   background: transparent;
-  color: white;
+  color: black;
   text-decoration: underline;
   font-weight: bold;
-  text-align: center;
-  display: block;
+  text-align: center;  
 }
+
 h1 {
   color: #E05151;
   text-align: center;
   font-size: 38px; font-family: 'Tangerine', serif; padding-bottom: 10px;
-  
-  
 }
+
 h1.title {
   margin: 0 0 1em;
   padding: 10px;
   background-color: orange;
-  color: white;
+  color: black;
   border-bottom: 4px solid gold;
   font-size: 2em;
   font-style: normal;
   text-align: center;
 }
+
 table#surveys, table#questions {
-  margin: 10px;
+  margin-top: 20px;
   border-collapse: collapse;
-  width: 100%;
+  width: 100%;  
 }
 
-table#surveys th, table#questions th, table#users th{
+table#surveys th, table#questions th, table#users th, table#response_summary th{
   font-weight: bold;
-  background-color: #E05151;
+  /*background-color: #E05151;*/
+  background-color: #31BC86;
   
 }
-table#surveys th, table#surveys td, table#questions th, table#questions td, table#users td {
-  padding: 4px;
+table#surveys th, table#questions th, table#response_summary th{
+  padding: 10px;
 }
 
-table
-{ 
+table#surveys tr, table#response_summary tr {
+  background-color: #34495E;
+  color: white;
+}
+
+table#surveys tr a {
+  color: white;
+}
+
+table#surveys td, table#questions td, table#users td, table#response_summary td {
+  padding: 6px;
+}
+
+table { 
     margin-left: auto;
     margin-right: auto;
 }
   
 #notice, #warning {
-  background: rosybrown;
+  background: #007CB0;
   margin: 1em 0;
   padding: 4px;
 }
+
 form {
-text-align:center;
+  text-align:center;
   display:block;
   font-weight: bold;
-   position: relative;
-   color: white;
+  position: relative;
+  color: black;
   float: bottom;
-	width: auto;
-	
+  width: auto;	
 }
 
 label{
-display:block;
+  display:block;
 }
 
 text{
-	display:block;
-    position:relative;
-    text-align:center;
-    width:20%;
-    background-color:#00FF00;
-    
+  display:block;
+  position:relative;
+  text-align:center;
+  width:20%;
+  background-color:#00FF00;
 }
-input[type = 'submit']{
-	
-	 position: relative;
-	 display: block;
-	 width: relative;
-    margin: 10px auto;
-	padding: 0;
-	font-size: 14px;
-	color: #f2f2f2;
-	text-align: center;
-	background: #E05151;
-	border: 0;
-	cursor: pointer;
+
+input[type = 'submit']{	
+  position: relative;
+  display: block;
+  width: relative;
+  margin: 7px auto;
+  padding: 3px;
+  font-size: 14px;
+  color: #f2f2f2;
+  text-align: center;
+  background: #E05151;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
  }
 	 
 #newQuestionForm, #createNewQuestionHeading{
   display: none;
+}
+
+.navbar-link {
+  background: #E05151;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  width: 100px;
+  color: white;
+  margin: 7px auto;
+  text-decoration: none;
+  padding: 2px;
+}
+
+textarea {
+  width: 225px;
+  height: 100px;
+}
+
+#questionInput {
+  width: 450px;
+  height: 100px;
+}
+
+#question_response_type {
+  width: 200px;
+}
+
+#question_dependency {
+  width: 200px;
+  height: 50px;
+}
+
+input[type="radio"] {
+  display: inline;
+}
+
+.take_survey_label{
+  display: inline;
+}
+
+#take_survey_save{
+  margin-top: 30px;
+  
 }

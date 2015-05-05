@@ -2,6 +2,8 @@
 %script(src="/app/assets/questions.js")
 
 %h1 All Questions
+= link_to 'Home', surveys_path, :class => 'homeLink'
+= link_to 'Create New Question', new_survey_question_path, :class => 'createNewQuestions'
 
 %table#questions
   %thead
@@ -10,24 +12,25 @@
       %th Survey Question
       %th Response Type
       %th Response Values
+      %th Dependency
+      %th Delete
   %tbody
     - @questions.each do |question|
       %tr
         %td= question.id
         %td= question.question
         %td= question.response_type
-        %td= question.response_values       
+        %td= question.response_values 
+        %td= question.dependency    
+        %td= link_to "Delete", survey_question_path(params[:survey_id],question), :method => :delete
 
-= link_to 'Create New Question', new_survey_question_path
-= link_to 'Home', surveys_path
-
-%h4= 'Questions Order'
+%h4= 'Current Questions Order:'
 %span= @survey.questions_order
 
 = form_tag survey_questions_order_path, :method => :post do
 
   = label :question, :questions_order, 'Questions Order'
-  = text_field :question, :question
+  = text_field :question, :questions_order
 
   = submit_tag 'Save Changes'
 
@@ -40,7 +43,7 @@
   = text_area :question, :question
 
   = label :question, :response_type, 'Response Type'
-  = select :question, :response_type, [:multiple_choice, :yes_or_no, :open_ended]
+  = select :question, :response_type, [:multiple_choice, :yes_or_no, :true_or_false, :open_ended]
 
   = label :question, :response_values, 'Response Values'
   = text_field :question, :response_values

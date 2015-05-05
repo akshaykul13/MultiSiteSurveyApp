@@ -31,20 +31,16 @@ class ResponseGroupsController < ApplicationController
   end
 
   def next_question
-=begin
-    if params[:response].nil?
-      flash[:notice] = "Enter a value."
-=begin      
+    if !params.has_key?(:response)
+      flash[:notice] = "Error: Please enter a response"
       Rails.logger.debug("New counter: #{@@questions_counter.inspect}")
-      #Rails.logger.debug("Responses: #{@@responses.inspect}")
       Rails.logger.debug("Next question id: #{@@questions_order[@@questions_counter].inspect}")
       @current_question = Question.find(@@questions_order[@@questions_counter])
       Rails.logger.debug("New question: #{@current_question.inspect}")
       redirect_to survey_response_group_path(params[:survey_id], @current_question)
-      #redirect_to survey_response_group_summary_path(params[:survey_id], 999)
-#=end
+      return
     end 
-=end
+
     params[:response].each do |key, value|
       @@responses[key] = value
     end

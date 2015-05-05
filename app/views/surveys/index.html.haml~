@@ -4,13 +4,13 @@
 %div#searchDiv
   #searchHead Search
   =form_tag :action => 'search_surveys' do    
-    = text_field :search, :survey_name, :placeholder => "Enter the search term for surveys", :id => 'search_survey_input', :class => 'btn'
+    = text_field :search, :survey_name, :placeholder => "Enter the search term for surveys", :id => 'search_survey_input'
     = submit_tag 'Search Surveys', :id=> 'search_survey_button'
 
 %div#menuDiv
-  - if current_user.admin != 0
-    = link_to 'Create New Survey', new_survey_path, :id => "createSurveys"
-    = link_to "Add Surveys to Users", survey_users_path, :id => "addUserToSurveys"
+  - if current_user.admin != false
+    = link_to 'Create New Survey', new_survey_path, :id => "createSurveys", :class => 'btn'
+    = link_to "Add Surveys to Users", survey_users_path, :id => "addUserToSurveys", :class => 'btn'
 
 %table#surveys
   %thead
@@ -18,20 +18,20 @@
       %th Survey Name
       %th Surveyor Name
       %th Survey Creation Date
-      - if current_user.admin != 0
-        %th Survey Link
+      %th Survey Link
+      - if current_user.admin != false        
         %th Responses
         %th Options
   %tbody
     - @surveys.each do |survey|
       %tr
-        - if current_user.admin != 0
+        - if current_user.admin != false
           %td= link_to content_tag(:strong, raw(survey.survey_name)), survey_questions_path(survey), :title => survey.survey_name, :class => "surveysClass"
         - else
           %td= link_to content_tag(:strong, raw(survey.survey_name)), new_survey_response_group_path(survey), :title => survey.survey_name, :class => "surveysClass"
         %td= survey.surveyor_name
         %td= survey.created_at
-        - if current_user.admin != 0
-          %td= link_to "Take the survey", new_survey_response_group_path(survey)
+        %td= link_to "Take the survey", new_survey_response_group_path(survey)
+        - if current_user.admin != false
           %td= link_to "Survey Results", survey_results_path(survey, format: "csv")
           %td= link_to "Delete Survey", survey_path(survey), :method => :delete

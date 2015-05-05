@@ -42,7 +42,7 @@ html, body {
   text-align: center; 
   margin-left:100px;
   vertical-align: middle;
-  padding-top: 18px;
+  padding-top: 20px;
 }
 
 #userLogDiv{
@@ -307,4 +307,9 @@ input[type="radio"] {
 #take_survey_confirm{
   display: inline-block;
   margin-top: 20px;
+}
+
+#manageUsersButton{
+  display: inline;
+  float: none;
 }

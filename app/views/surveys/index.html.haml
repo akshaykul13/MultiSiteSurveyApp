@@ -3,10 +3,9 @@
 
 %div#searchDiv
   #searchHead Search
-  =form_tag :action => 'search_surveys' do
-    = label :search, :survey_name, 'Survey Name'
-    = text_field :search, :survey_name  
-    = submit_tag 'Search Surveys'
+  =form_tag :action => 'search_surveys' do    
+    = text_field :search, :survey_name, :placeholder => "Enter the search term for surveys", :id => 'search_survey_input'
+    = submit_tag 'Search Surveys', :id=> 'search_survey_button'
 
 %div#menuDiv
   - if current_user.admin != 0

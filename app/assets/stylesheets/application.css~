@@ -70,8 +70,18 @@ div#main {
 
 #searchHead {
   font-size: 20px;
-  color: #E05151;
+  color: #31BC86;
   font-weight: 700;
+  padding-bottom:10px;
+}
+
+#search_survey_input {
+  width: 250px;
+  height: 25px;
+}
+
+#search_survey_button {
+  margin-top: 15px;
 }
 
 a {
@@ -105,17 +115,17 @@ table#surveys, table#questions {
   width: 100%;  
 }
 
-table#surveys th, table#questions th, table#users th{
+table#surveys th, table#questions th, table#users th, table#response_summary th{
   font-weight: bold;
   /*background-color: #E05151;*/
   background-color: #31BC86;
   
 }
-table#surveys th, table#questions th{
+table#surveys th, table#questions th, table#response_summary th{
   padding: 10px;
 }
 
-table#surveys tr {
+table#surveys tr, table#response_summary tr {
   background-color: #34495E;
   color: white;
 }

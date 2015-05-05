@@ -30,6 +30,27 @@ html, body {
   display: block;
   
  }
+
+#headerDiv { 
+  background-color: gray;
+  width: 100%;
+  height: 50px;
+}
+
+#loggedInDiv{
+  display: inline;
+  text-align: center; 
+  margin-left:100px;
+  vertical-align: middle;
+  padding-top: 16px;
+}
+
+#userLogDiv{
+  display: inline;
+  float: right; 
+  padding-top: 5px;
+  padding-right: 10px;
+}
  
 div#main {
   margin: 0;
@@ -64,8 +85,23 @@ div#main {
   padding-right: 10px; 
 }
 
-.createNewQuestions, .homeLink {
-  display:block;
+#questionsPageButtons {
+  padding-bottom: 20px;
+}
+
+#orderSpanDiv {
+  font-weight: bold;
+}
+
+#newQuesOrderDiv {
+  margin-top: 20px;
+  padding-top: 20px;
+  width: 300px;
+  height: 100px;
+  margin: 0 auto;
+  background-color: gray;
+  border-radius: 5px;
+  display: inline-block
 }
 
 #searchHead {
@@ -81,7 +117,7 @@ div#main {
 }
 
 #search_survey_button {
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 a {
@@ -112,7 +148,8 @@ h1.title {
 table#surveys, table#questions {
   margin-top: 20px;
   border-collapse: collapse;
-  width: 100%;  
+  width: 100%; 
+  display: inline-block;
 }
 
 table#surveys th, table#questions th, table#users th, table#response_summary th{
@@ -145,7 +182,7 @@ table {
   
 #notice, #warning {
   background: #007CB0;
-  margin: 1em 0;
+  margin: 0.5em 0;
   padding: 4px;
 }
 
@@ -235,5 +272,40 @@ input[type="radio"] {
 
 #take_survey_save{
   margin-top: 30px;
-  
+}
+
+.btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #E6E6E6, #CCCCCC);
+  background-image: -moz-linear-gradient(top, #E6E6E6, #CCCCCC);
+  background-image: -ms-linear-gradient(top, #E6E6E6, #CCCCCC);
+  background-image: -o-linear-gradient(top, #E6E6E6, #CCCCCC);
+  background-image: linear-gradient(to bottom, #E6E6E6, #CCCCCC);
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  color: #000000;
+  font-size: 14px;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #cdcdcd, #b3b3b3);
+  background-image: -moz-linear-gradient(top, #cdcdcd, #b3b3b3);
+  background-image: -ms-linear-gradient(top, #cdcdcd, #b3b3b3);
+  background-image: -o-linear-gradient(top, #cdcdcd, #b3b3b3);
+  background-image: linear-gradient(to bottom, #cdcdcd, #b3b3b3);
+  text-decoration: none;
+}
+
+#questionsOrderHeading {
+  display: inline;
+  margin-top: 125px;
+}
+
+#take_survey_confirm{
+  display: inline-block;
+  margin-top: 20px;
 }

@@ -4,7 +4,7 @@
 %div#searchDiv
   #searchHead Search
   =form_tag :action => 'search_surveys' do    
-    = text_field :search, :survey_name, :placeholder => "Enter the search term", :id => 'search_survey_input'
+    = text_field :search, :survey_name, :placeholder => "Enter the search term for surveys", :id => 'search_survey_input', :class => 'btn'
     = submit_tag 'Search Surveys', :id=> 'search_survey_button'
 
 %div#menuDiv

@@ -15,5 +15,5 @@
             %td= question.question
         %td= value
 
-= link_to 'Confirm Submission', survey_response_group_submit_summary_path(params[:survey_id], params[:response_group_id]), :id => 'take_survey_confirm'
-= link_to 'Home', surveys_path, :class => 'homeLink'
+= link_to 'Confirm Submission', survey_response_group_submit_summary_path(params[:survey_id], params[:response_group_id]), :id => 'take_survey_confirm', :class => 'btn'
+= link_to 'Home', surveys_path, :class => 'homeLink btn'

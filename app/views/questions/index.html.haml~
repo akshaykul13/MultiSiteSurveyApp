@@ -2,8 +2,13 @@
 %script(src="/app/assets/questions.js")
 
 %h1 All Questions
-= link_to 'Home', surveys_path, :class => 'homeLink'
-= link_to 'Create New Question', new_survey_question_path, :class => 'createNewQuestions'
+%div#questionsPageButtons
+  = link_to 'Home', surveys_path, :class => 'homeLink btn'
+  = link_to 'Create New Question', new_survey_question_path, :class => 'createNewQuestions btn'
+
+%div
+  %span#questionsOrderHeading=  'Current Order of Questions :'
+  %span= @survey.questions_order
 
 %table#questions
   %thead
@@ -24,15 +29,12 @@
         %td= question.dependency    
         %td= link_to "Delete", survey_question_path(params[:survey_id],question), :method => :delete
 
-%h4= 'Current Questions Order:'
-%span= @survey.questions_order
 
-= form_tag survey_questions_order_path, :method => :post do
-
-  = label :question, :questions_order, 'Questions Order'
-  = text_field :question, :questions_order
-
-  = submit_tag 'Save Changes'
+%div#newQuesOrderDiv
+  = form_tag survey_questions_order_path, :method => :post do
+    = label :question, :questions_order, 'Questions Order', :id=>'questionPageLabel'
+    = text_field :question, :questions_order
+    = submit_tag 'Save Changes'
 
 
 %h2{:id => "createNewQuestionHeading"} Create New Question

@@ -11,6 +11,9 @@
   = label :question, :response_values, 'Response Values'
   = text_field :question, :response_values, :placeholder => 'Enter comma separated values'
 
+  = label :question, :dependency, 'Dependency'
+  = text_area :question, :dependency
+
   = submit_tag 'Save Changes'
 
 = link_to "Back", survey_questions_path(params[:survey_id]), :class => 'navbar-link'

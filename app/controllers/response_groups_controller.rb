@@ -3,6 +3,7 @@ class ResponseGroupsController < ApplicationController
   @@questions_order = []
   @@response_group
   @@responses = {}
+  @dependency_list = []
 
   def new
     @@questions_counter = 0
@@ -30,17 +31,57 @@ class ResponseGroupsController < ApplicationController
   end
 
   def next_question
+=begin
+    if params[:response].nil?
+      flash[:notice] = "Enter a value."
+=begin      
+      Rails.logger.debug("New counter: #{@@questions_counter.inspect}")
+      #Rails.logger.debug("Responses: #{@@responses.inspect}")
+      Rails.logger.debug("Next question id: #{@@questions_order[@@questions_counter].inspect}")
+      @current_question = Question.find(@@questions_order[@@questions_counter])
+      Rails.logger.debug("New question: #{@current_question.inspect}")
+      redirect_to survey_response_group_path(params[:survey_id], @current_question)
+      #redirect_to survey_response_group_summary_path(params[:survey_id], 999)
+#=end
+    end 
+=end
     params[:response].each do |key, value|
       @@responses[key] = value
     end
     @@questions_counter = @@questions_counter + 1
-    if @@questions_counter < @@questions_order.length
+    
+    while @@questions_counter < @@questions_order.length
       Rails.logger.debug("Responses: #{@@responses.inspect}")
       Rails.logger.debug("Next question id: #{@@questions_order[@@questions_counter].inspect}")
       @current_question = Question.find(@@questions_order[@@questions_counter])
-      redirect_to survey_response_group_path(params[:survey_id], @current_question)
-    else
-      redirect_to survey_response_group_summary_path(params[:survey_id], 999)
+      @dependency_list = []
+      @current_question.dependency.split(/\s*,+\s*/).each do |dep|
+        @dependency_list << dep.downcase
+      end
+      flag = false
+      for i in 0..@dependency_list.length - 1
+        if i % 2 != 0
+           next
+        end 
+        if @dependency_list[i+1] == @@responses[@dependency_list[i]].downcase ||@current_question.dependency == nil ||@current_question.dependency == ''
+          flag = true
+          break
+        end
+      end
+      
+      if @current_question.dependency == nil ||@current_question.dependency == ''
+        flag = true
+      end
+
+      if flag
+	 redirect_to survey_response_group_path(params[:survey_id], @current_question)
+         break;
+      else 
+         @@questions_counter = @@questions_counter + 1         
+      end     
+    end
+    if @@questions_counter >= @@questions_order.length
+       redirect_to survey_response_group_summary_path(params[:survey_id], 999)
     end
   end
 

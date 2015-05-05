@@ -10,6 +10,7 @@
       %th Survey Question
       %th Response Type
       %th Response Values
+      %th Dependency
       %th Delete
   %tbody
     - @questions.each do |question|
@@ -17,7 +18,8 @@
         %td= question.id
         %td= question.question
         %td= question.response_type
-        %td= question.response_values     
+        %td= question.response_values 
+        %td= question.dependency    
         %td= link_to "Delete", survey_question_path(params[:survey_id],question), :method => :delete
 
 = link_to 'Create New Question', new_survey_question_path
@@ -42,7 +44,7 @@
   = text_area :question, :question
 
   = label :question, :response_type, 'Response Type'
-  = select :question, :response_type, [:multiple_choice, :yes_or_no, :open_ended]
+  = select :question, :response_type, [:multiple_choice, :yes_or_no, :true_or_false, :open_ended]
 
   = label :question, :response_values, 'Response Values'
   = text_field :question, :response_values

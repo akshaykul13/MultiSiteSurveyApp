@@ -92,8 +92,10 @@ class ResponseGroupsController < ApplicationController
       Rails.logger.debug("New question id: #{@@questions_order[@@questions_counter].inspect}")
       @current_question = Question.find(@@questions_order[@@questions_counter])
       Rails.logger.debug("New question: #{@current_question.inspect}")
+      redirect_to survey_response_group_path(params[:survey_id], @current_question)
+    else
+      redirect_to surveys_path(params[:survey_id])
     end
-    redirect_to survey_response_group_path(params[:survey_id], @current_question)
   end
 
   def summary

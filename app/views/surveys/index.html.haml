@@ -34,5 +34,4 @@
 
 - if current_user.admin != 0
   = link_to 'Create New Survey', new_survey_path, :id => "createSurveys"
-  = link_to "Download CSV", surveys_path(format: "csv")
   = link_to "Add Surveys to Users", survey_users_path

@@ -51,7 +51,9 @@ class SurveysController < ApplicationController
 
   def questions_order
     survey = Survey.find(params[:survey_id])
-    survey.update(questions_order: params[:question][:questions_order])
+    if !params[:question][:questions_order].empty?
+      survey.update(questions_order: params[:question][:questions_order])
+    end
     redirect_to survey_questions_path(survey)
   end
 

@@ -42,7 +42,7 @@ html, body {
   text-align: center; 
   margin-left:100px;
   vertical-align: middle;
-  padding-top: 16px;
+  padding-top: 18px;
 }
 
 #userLogDiv{
@@ -149,7 +149,6 @@ table#surveys, table#questions {
   margin-top: 20px;
   border-collapse: collapse;
   width: 100%; 
-  display: inline-block;
 }
 
 table#surveys th, table#questions th, table#users th, table#response_summary th{

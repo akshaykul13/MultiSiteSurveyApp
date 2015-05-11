@@ -21,15 +21,18 @@
       %th Survey Link
       - if current_user.admin != 0        
         %th Responses
+        %th Delete
   %tbody
-    - @surveys.each do |survey|
-      %tr
-        - if current_user.admin != 0
-          %td= link_to content_tag(:strong, raw(survey.survey_name)), survey_questions_path(survey), :title => survey.survey_name, :class => "surveysClass"
-        - else
-          %td= link_to content_tag(:strong, raw(survey.survey_name)), new_survey_response_group_path(survey), :title => survey.survey_name, :class => "surveysClass"
-        %td= survey.surveyor_name
-        %td= survey.created_at
-        %td= link_to "Take the survey", new_survey_response_group_path(survey)
-        - if current_user.admin != 0
-          %td= link_to "Survey Results", survey_results_path(survey, format: "csv")
+    - if @surveys.size != 0
+      - @surveys.each do |survey|
+        %tr
+          - if current_user.admin != 0
+            %td= link_to content_tag(:strong, raw(survey.survey_name)), survey_questions_path(survey), :title => survey.survey_name, :class => "surveysClass"
+          - else
+            %td= link_to content_tag(:strong, raw(survey.survey_name)), new_survey_response_group_path(survey), :title => survey.survey_name, :class => "surveysClass"
+          %td= survey.surveyor_name
+          %td= survey.created_at
+          %td= link_to "Take the survey", new_survey_response_group_path(survey)
+          - if current_user.admin != 0
+            %td= link_to "Survey Results", survey_results_path(survey, format: "csv")
+            %td= link_to "Delete Survey", survey_path(survey), :method => :delete

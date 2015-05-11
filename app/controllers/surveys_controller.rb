@@ -69,6 +69,10 @@ class SurveysController < ApplicationController
   def destroy
     @survey = Survey.find(params[:id])
     @survey.destroy
+    @users = SurveyUser.where(surveyid: params[:id])
+    @users.each do |user|
+     user.destroy
+    end
     flash[:notice] = "Survey ’#{@survey.survey_name}’ deleted."
     redirect_to surveys_path
   end

@@ -11,6 +11,10 @@ def create_surveytaker
 @visitor ||= { :email => "user@surveybuilder.com",
 :password => "user1234", :password_confirmation => "user1234" }
 end
+def create_root
+@visitor ||= { :email => "root@surveybuilder.com",
+:password => "root1234", :password_confirmation => "root1234" }
+end
 def find_user
 @user ||= User.where(:email => @visitor[:email]).first
 end
@@ -38,6 +42,10 @@ end
 ### GIVEN ###
 Given /^I am not logged in$/ do
 visit '/users/sign_in'
+end
+Given /^root is logged in$/ do
+create_root
+sign_in
 end
 Given /^I am logged in$/ do
 create_visitor

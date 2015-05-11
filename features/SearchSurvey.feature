@@ -14,14 +14,14 @@ Background:
  
 Scenario: Search
   Given I am on the surveys home page
-  When I fill in "Survey Name" with "XYZ"
+  When I fill in "search_survey_input" with "XYZ"
   And I press "Search Surveys"
   Then I should be on the search results page
   And I should see "XYZ"
   
 Scenario: Case-Insensitive Search
   Given I am on the surveys home page
-  When I fill in "Survey Name" with "xYz"
+  When I fill in "search_survey_input" with "xYz"
   And I press "Search Surveys"
   Then I should be on the search results page
   And I should see "XYZ"

@@ -25,9 +25,21 @@ module NavigationHelpers
       new_survey_question_path(@survey.id)
     when /^the Response page for (.*)$/
       @survey =  Survey.where(survey_name: $1).first
-      new_survey_response_group_path(@survey.id)
+      new_survey_response_group_path(@survey)#.id)
+    when /^the alloted surveys page for (.*)$/
+      @user = User.where(email: $1).first
+      survey_user_path(@user)
+    when /^the Summary page for (.*)$/
+      @survey =  Survey.where(survey_name: $1).first
+      
     when /^the search results page/
       '/surveys/search_surveys' 
+    when /^the Manage Users page/
+      '/manageusers'
+    when /^the Create New User page/
+      '/manageusers/new'
+    when /^the Survey Users Page/
+      '/survey_users'
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

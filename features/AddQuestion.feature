@@ -18,7 +18,7 @@ Scenario: Add a survey
   Then I should be on the Questions page for My Test Survey
   When I follow "Create New Question"
   Then I should be on the New Questions page for My Test Survey
-  When I fill in "Question" with "Cucumber Question"
+  When I fill in "questionInput" with "Cucumber Question"
   And I select "Open Ended" from "Response Type"
   And I fill in "Response Values" with "Open ended Response"
   And I press "Save Changes"
